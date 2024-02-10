@@ -3,48 +3,38 @@ import Image from "next/image";
 import MvImg from "../../public/mv.jpeg";
 // import { BookType } from "./types/types";
 
-type BookType = {
-  id: number;
-  title: string;
-  price: number;
-  content: string;
-  thumbnail: { url: string };
-  createdAt: string;
-  updatedAt: string;
-  tag: [];
-};
-
 // 疑似データ
 const products = [
   {
     id: 1,
     title: "カルビ",
-    thumbnail: "../../public/item_1.jpg",
+    
+    url: "/meat/item_1.jpg",
     price: 2980,
     content: "カルビです。",
-    tag: ["焼肉"],
-    created_at: new Date().toString(),
-    updated_at: new Date().toString(),
+    tag: ["焼肉","まとめ買い",],
+    createdAt: new Date().toString(),
+    updatedAt: new Date().toString(),
   },
   {
     id: 2,
     title: "サーロイン",
-    thumbnail: "/public/meat/item_2.jpeg",
+    url: "/meat/item_2.jpg",
     price: 1980,
     content: "サーロインの詳細情報です",
-    tag: ["焼肉"],
-    created_at: new Date().toString(),
-    updated_at: new Date().toString(),
+    tag: ["焼肉","まとめ買い",],
+    createdAt: new Date().toString(),
+    updatedAt: new Date().toString(),
   },
   {
     id: 3,
     title: "ロース",
     price: 4980,
-    thumbnail: "@/public/meat/item_3.jpg",
+    url: "/meat/item_3.jpg",
     content: "ロースの詳細情報です",
-    tag: ["焼肉"],
-    created_at: new Date().toString(),
-    updated_at: new Date().toString(),
+    tag: ["焼肉","まとめ買い",],
+    createdAt: new Date().toString(),
+    updatedAt: new Date().toString(),
   },
 ];
 

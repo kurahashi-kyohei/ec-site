@@ -50,7 +50,7 @@ const Product = ({ product, isPurchased }: ProductProps) => {
           <div className="relative w-96 h-64">
             <Image
               priority
-              src={product.thumbnail.url}
+              src={product.url}
               alt={product.title}
               layout="fill"
               objectFit="cover"

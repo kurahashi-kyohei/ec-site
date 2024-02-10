@@ -1,12 +1,12 @@
 type BookType = {
   id: number;
   title: string;
+  url: string;
   price: number;
   content: string;
-  thumbnail: { url: string };
+  tag: string[];
   createdAt: string;
   updatedAt: string;
-  tag: [];
 };
 
 type Purchase = {
