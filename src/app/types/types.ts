@@ -9,6 +9,13 @@ type BookType = {
   updatedAt: string;
 };
 
+type ProductType = {
+  title: string;
+  content: string;
+  price: number;
+  image: string;
+}
+
 type Purchase = {
   id: string;
   userId: string;
@@ -24,4 +31,4 @@ type User = {
   image: string;
 };
 
-export type { BookType, Purchase, User };
+export type { BookType, Purchase, User, ProductType };

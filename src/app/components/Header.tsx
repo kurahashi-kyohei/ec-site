@@ -63,13 +63,13 @@ const Header = async () => {
               href={`/profile`}
               className="rounded-full overflow-hidden border border-gray-300"
             >
-              <Image
+              {/* <Image
                 width={40}
                 height={40}
                 alt="profile_icon"
                 src={user?.image || "/default_icon.png"}
                 className="rounded-full"
-              />
+              /> */}
             </Link>
           ) : (
             <Image
