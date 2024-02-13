@@ -1,20 +1,13 @@
 type BookType = {
   id: number;
   title: string;
-  url: string;
   price: number;
   content: string;
-  tag: string[];
+  imgUrl: HTMLImageElement;
   createdAt: string;
   updatedAt: string;
+  tag: [];
 };
-
-type ProductType = {
-  title: string;
-  content: string;
-  price: number;
-  image: string;
-}
 
 type Purchase = {
   id: string;
@@ -31,4 +24,4 @@ type User = {
   image: string;
 };
 
-export type { BookType, Purchase, User, ProductType };
+export type { BookType, Purchase, User };

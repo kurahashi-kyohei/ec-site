@@ -128,13 +128,22 @@ const DetailBook = ({ params }: { params: { id: string } }) => {
   return (
     <div className="container mx-auto p-4 mt-8 mb-8">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="w-full h-80 m-4 relative">
         <Image
-          className="w-full h-80 object-cover object-center"
-          src={book.url}
+          className=" object-contain object-center absolute "
+          src={book.imgUrl}
+          alt={book.title}
+          fill
+        />
+        </div>
+        
+        {/* <Image
+          className=" object-contain object-center"
+          src={book.imgUrl}
           alt={book.title}
           width={700}
           height={700}
-        />
+        /> */}
         <div className="p-4">
           <div className="flex justify-between items-center mt-2">
             <span className="text-sm text-gray-500">

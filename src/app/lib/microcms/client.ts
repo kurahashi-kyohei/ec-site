@@ -6,8 +6,8 @@ export const client = createClient({
   apiKey: process.env.NEXT_PUBLIC_API_KEY!,
 });
 
-export const getAllProducts = async () => {
-  const allProducts = await client.getList<BookType>({
+export const getAllBooks = async () => {
+  const allBooks = await client.getList<BookType>({
     endpoint: "ec-site-demo",
     queries: {
       offset: 0,
@@ -15,7 +15,7 @@ export const getAllProducts = async () => {
     },
   });
 
-  return allProducts;
+  return allBooks;
 };
 
 export const getDetailBook = async (contentId: string) => {

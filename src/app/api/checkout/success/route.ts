@@ -1,9 +1,7 @@
-
 import prisma from "@/app/lib/prisma";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-// 初期化
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export async function POST(request: Request, response: Response) {
@@ -16,7 +14,7 @@ export async function POST(request: Request, response: Response) {
     const purchase = await prisma.purchase.create({
       data: {
         userId: session.client_reference_id!,
-        productId: session.metadata?.productId!,
+        bookId: session.metadata?.bookId!,
       },
     });
     return NextResponse.json({ purchase });
@@ -24,5 +22,3 @@ export async function POST(request: Request, response: Response) {
     return NextResponse.json({ message: err.message });
   }
 }
-
-

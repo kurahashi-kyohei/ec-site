@@ -4,12 +4,12 @@ import Image from "next/image";
 import { BookType } from "../types/types";
 import Link from "next/link";
 
-type ProductProps = {
-  product: BookType;
+type BookProps = {
+  book: BookType;
   isPurchased?: boolean;
 };
 
-const Product = ({ product, isPurchased }: ProductProps) => {
+const Book = ({ book, isPurchased }: BookProps) => {
   const truncateText = (text: string, maxLength: number) => {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + "...";
@@ -21,7 +21,7 @@ const Product = ({ product, isPurchased }: ProductProps) => {
   const formattedPrice = new Intl.NumberFormat("ja-JP", {
     style: "currency",
     currency: "JPY",
-  }).format(product.price);
+  }).format(book.price);
 
   return (
     <>
@@ -44,24 +44,24 @@ const Product = ({ product, isPurchased }: ProductProps) => {
 
       <div className="flex flex-col items-center m-4 w-96">
         <Link
-          href={`/book/${product.id}`}
+          href={`/book/${book.id}`}
           className="cursor-pointer shadow-2xl duration-300 hover:translate-y-1 hover:shadow-none"
         >
           <div className="relative w-96 h-64">
             <Image
               priority
-              src={product.url}
-              alt={product.title}
+              src={book.imgUrl}
+              alt={book.title}
               layout="fill"
               objectFit="cover"
               className="rounded-t-md"
             />
           </div>
           <div className="px-4 py-4 bg-slate-100 rounded-b-md h-full">
-            <h2 className="text-xl font-semibold">{product.title}</h2>
-            {product.tag && (
+            <h2 className="text-xl font-semibold">{book.title}</h2>
+            {book.tag && (
               <div className="mt-2">
-                {product.tag.map((tag, index) => (
+                {book.tag.map((tag, index) => (
                   <span
                     key={index}
                     className="inline-block bg-yellow-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
@@ -72,7 +72,7 @@ const Product = ({ product, isPurchased }: ProductProps) => {
               </div>
             )}
             <p className="mt-2 text-lg text-slate-600">
-              {truncateText(product.content, 50)}
+              {truncateText(book.content, 50)}
             </p>
             <div className="flex justify-between items-center mt-3">
               {isPurchased ? (
@@ -93,5 +93,4 @@ const Product = ({ product, isPurchased }: ProductProps) => {
   );
 };
 
-export default Product;
-
+export default Book;

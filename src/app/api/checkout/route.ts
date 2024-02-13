@@ -7,14 +7,14 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function POST(request: Request, response: Response) {
-  const { title, price, productId, userId } = await request.json();
+  const { title, price, bookId, userId } = await request.json();
 
   try {
     // チェックアウトセッションの作成
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       metadata: {
-        productId: productId,
+        bookId: bookId,
       },
       client_reference_id: userId,
       line_items: [
@@ -30,7 +30,7 @@ export async function POST(request: Request, response: Response) {
         },
       ],
       mode: "payment",
-      success_url: `${baseUrl}`,
+      success_url: `${baseUrl}/book/checkout`,
       cancel_url: `${baseUrl}`,
     });
     return NextResponse.json({
